@@ -8,23 +8,20 @@
 </head>
 <body>
     <div id='app'>
-        <div v-bind:title="hover">
-            {{ message }}
-        </div>
-        <ul>
-            <todo v-for="item in groceryList" v-bind:tod="item"></todo>
-        </ul>
+        <p>Ask Yes/No question
+            <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
         
     </div>
-
+    <script src="https://unpkg.com/lodash@4.17.20/lodash.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="index.js"></script>
     <script src="components/todo.js"></script>
     <script>  
-        const mountedApp =  app.mount('#app')
+        const vm =  app.mount('#app')
+        console.log(vm.$data.message)
+        console.log(vm.message)
     </script>
-    <!-- <script>
-
-    </script> -->
 </body>
 </html>
