@@ -10,7 +10,7 @@ const app =Vue.createApp({
     },
     
     watch:{
-        question(newQuestion, oldQuestion){
+        question(newQuestion){
             if(newQuestion.indexOf('?') > -1){
                 this.getAnswer()
             }
