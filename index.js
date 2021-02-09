@@ -3,27 +3,27 @@
 const app =Vue.createApp({
     data(){
         return{
-            message: "Hover to read",
-            hover: "you hove",
-            groceryList: [],
-            site: "google",
-            counter: 0
+            question: '',
+            answer: 'Question usually contains a question mark. ;-)',
+            url: ''
         }
     },
-    mounted(){
-        for(let i =  1; i< 11; i++){
-            this.groceryList.push(i*2)
+    
+    watch:{
+        question(newQuestion, oldQuestion){
+            if(newQuestion.indexOf('?') > -1){
+                this.getAnswer()
+            }
         }
-    },
-    computed:{
-        url: function(){
-            return 'https://www.' + this.site + '.com'
-        },
     },
     methods:{
-        date(){
-            return new Date()
-        },
-        
+        getAnswer(){
+            this.answer = 'Thinking....'
+            //axios is a http client which makes request to the yesno api which returns 
+            //yes or no then we set answer equal to data.answer which we got through the reponse
+            //and then we catch errors
+            axios.get('https://yesno.wtf/api').then(response => {this.answer = response.data.answer; this.url = response.data.image})
+            .catch(error =>{this.answer= 'Error! could not reach api. '+ error})
+        }
     }
 })

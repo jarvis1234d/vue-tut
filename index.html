@@ -12,16 +12,14 @@
             <input v-model="question">
         </p>
         <p>{{ answer }}</p>
+        <img :src="url" style="width: 413px">
         
     </div>
-    <script src="https://unpkg.com/lodash@4.17.20/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="index.js"></script>
-    <script src="components/todo.js"></script>
     <script>  
         const vm =  app.mount('#app')
-        console.log(vm.$data.message)
-        console.log(vm.message)
     </script>
 </body>
 </html>
